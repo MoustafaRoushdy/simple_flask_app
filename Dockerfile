@@ -1,20 +1,14 @@
-FROM python:3.13.0b3-bookworm
+FROM python:3.13-rc-slim
 
 WORKDIR  /app
 
 COPY . .
 
-RUN pip install -r requirments.txt && apt install -y mariadb-server
+RUN pip install -r requirements.txt
 
-ENV password=my-pass
-
-EXPOSE 5000
+EXPOSE 6000
 
 CMD python app.py
-
-ENTRYPOINT python app.py
-
-
 
 
 
