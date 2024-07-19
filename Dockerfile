@@ -1,13 +1,13 @@
-from python:latest
+FROM python:latest
 
-workdir /app
+WORKDIR /app
 
 COPY requirements.txt .
 
 RUN pip install -r  requirements.txt
 
-copy app.py
+COPY app.py
 
-expose 5000
+EXPOSE 5000
 
-cmd python app.py
+CMD python app.py
