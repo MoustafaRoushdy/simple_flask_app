@@ -1,8 +1,11 @@
 pipeline {
-    agent any
+    agent none
     
     stages {
         stage('Build') {
+            agent {
+                label 'Built-In Node'
+            }
             steps {
                 script {
                         docker.withRegistry('https://index.docker.io/v1/', 'dockerhub_credentials') {
@@ -34,6 +37,9 @@ pipeline {
         }
         
         stage("Deploy"){
+            agent {
+                label 'Built-In Node'
+            }
             input {
                 message "Do you really want to run the container?"
             }
