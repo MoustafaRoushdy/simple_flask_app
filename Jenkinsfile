@@ -23,6 +23,15 @@ pipeline {
                 echo "Testing.."
             }
         }
+        stage("Test node"){
+            agent {
+                label 'node1'
+            }
+            steps{
+                sh "echo Hello"
+            }
+            
+        }
         
         stage("Deploy"){
             input {
