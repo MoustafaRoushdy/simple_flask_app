@@ -14,6 +14,11 @@ pipeline {
         }
         
         stage("Test"){
+            agent {
+                docker {
+                    image 'ubuntu:latest'
+                }
+            }
             steps {
                 echo "Testing.."
             }
