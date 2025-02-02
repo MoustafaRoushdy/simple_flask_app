@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Build') {
             agent {
-                label 'master'
+                label 'controller'
             }
             steps {
                 script {
@@ -38,7 +38,7 @@ pipeline {
         
         stage("Deploy"){
             agent {
-                label 'Built-In Node'
+                label 'built-in Node'
             }
             input {
                 message "Do you really want to run the container?"
