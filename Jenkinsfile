@@ -25,6 +25,9 @@ pipeline {
         }
         
         stage("Deploy"){
+            input {
+                message "Do you really want to run the container?"
+            }
             steps {
                 sh "docker run -d --name flaskcontainer -p 5555:5000 moustafaroushdy/flaskapp:0.0.1"
             }
