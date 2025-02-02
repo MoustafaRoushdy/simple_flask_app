@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Build') {
             agent {
-                label 'Built-In Node'
+                label 'master'
             }
             steps {
                 script {
